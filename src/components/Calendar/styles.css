@@ -1,8 +1,19 @@
+.table thead{
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody{
+  border-left: 1px solid #ddd;
+}
+
 .table td,
 .table th {
   border-right: 1px solid #ddd;
-  padding: 10px;
   text-align: center;
+}
+
+.event-td{
+  padding: 2px!important;
 }
 
 .table td:last-child,
@@ -15,11 +26,3 @@
   width: 100%;
 }
 
-.calendar-event .event {
-
-  
-}
-
-.calendar-event .event:not(:last-child) {
-  /* border-right: 1px solid lightgray; */
-}

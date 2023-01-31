@@ -1,11 +1,10 @@
 import { Table, Container, Row, Col } from "react-bootstrap";
 import CalendarForm from "../CalendarForm";
-import { useEvents } from '../../context/EventsContext';
-import { useState } from 'react';
+import { useEvents } from "../../context/EventsContext";
+import { useState } from "react";
 import Event from "../Event";
 import "./styles.css";
-import Confetti from 'react-confetti';
-
+import Confetti from "react-confetti";
 
 const Calendar = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -25,36 +24,43 @@ const Calendar = () => {
   ];
 
   const { events } = useEvents();
-  console.log(events)
 
   return (
     <div className="calendar">
-         {showConfetti ? <Confetti /> : null}
-      <Container>
+      {showConfetti ? <Confetti /> : null}
+      <Container style={{marginTop: "10px"}}>
         <Row>
           <Col>
             <Table borderless>
               <thead>
                 <tr>
                   <th></th>
+                  
                   {daysOfWeek.map((day) => (
                     <th key={day}>{day}</th>
                   ))}
+                 
                 </tr>
               </thead>
               <tbody>
                 {hoursOfDay.map((hour) => (
-                  <tr  key={hour}>
+                  <tr key={hour}>
                     <td>{hour}</td>
                     {daysOfWeek.map((day) => {
-                      const eventsForHour = events.filter(event => event.day === day && event.startTime === hour);
+                      const eventsForHour = events.filter(
+                        (event) => event.day === day && event.startTime === hour
+                      );
                       const numEvents = eventsForHour.length;
                       return (
-                        <td  key={`${day}-${hour}`}>
+                        <td key={`${day}-${hour}`} className="event-td">
                           <div className="calendar-event">
-                          {eventsForHour.map(event => (
-                            <Event key={event.id} event={event} style={{ width: `${100 / numEvents}%` }}  />
-                          ))}
+                            {eventsForHour.map((event) => (
+                              <Event
+                                key={event.id}
+                                event={event}
+                                style={{ width: `${100 / numEvents}%` }}
+                              />
+                            ))}
                           </div>
                         </td>
                       );
@@ -65,9 +71,12 @@ const Calendar = () => {
             </Table>
           </Col>
         </Row>
-        <CalendarForm daysOfWeek={daysOfWeek} hoursOfDay={hoursOfDay} setShowConfetti={setShowConfetti}/>
+        <CalendarForm
+          daysOfWeek={daysOfWeek}
+          hoursOfDay={hoursOfDay}
+          setShowConfetti={setShowConfetti}
+        />
       </Container>
-       
     </div>
   );
 };
