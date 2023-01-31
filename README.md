@@ -11,15 +11,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Built With
 * [React](https://reactjs.org/) - The web framework used
-* [React Router](https://reacttraining.com/react-router/) - Routing
 * [ContextAPI](https://reactjs.org/docs/context.html) - State Management
 * [React Bootstrap](https://react-bootstrap.github.io/) - Styling
 
 ## Features
 * Add events to the calendar
 * View events on the calendar
+* Animation after adding event
 
 ## Challenges
+* Displaying events on the calendar was a challenge, as was figuring out how to make the events at the same hour display in a row instead of on top of each other. I ended up using a style prop for each event that dictated the width of the event based on the number of events at that hour. 
 
 ## Screenshots
 
