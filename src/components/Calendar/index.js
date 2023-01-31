@@ -1,4 +1,4 @@
-import {Table, Container, Row, Col} from 'react-bootstrap';
+import { Table, Container, Row, Col } from "react-bootstrap";
 
 const Calendar = () => {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -15,35 +15,36 @@ const Calendar = () => {
     "18:00",
   ];
 
-  return <div className="calendar">
-    <Container>
+  return (
+    <div className="calendar">
+      <Container fluid>
         <Row>
-            <Col>
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            {daysOfWeek.map((day) => (
-                                <th key={day}>{day}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {hoursOfDay.map((hour) => (
-                            <tr>
-                                <td>{hour}</td>
-                                {daysOfWeek.map((day) => (
-                                    <td key={`${day}-${hour}`}></td>
-                                ))}
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            </Col>
+          <Col>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th></th>
+                  {daysOfWeek.map((day) => (
+                    <th key={day}>{day}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {hoursOfDay.map((hour) => (
+                  <tr key={hour}>
+                    <td>{hour}</td>
+                    {daysOfWeek.map((day) => (
+                      <td key={`${day}-${hour}`}></td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Col>
         </Row>
-    </Container>
-                    
-  </div>;
+      </Container>
+    </div>
+  );
 };
 
 export default Calendar;
