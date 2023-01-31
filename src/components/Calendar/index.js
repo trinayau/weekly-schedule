@@ -1,5 +1,6 @@
 import { Table, Container, Row, Col } from "react-bootstrap";
 import CalendarForm from "../CalendarForm";
+import { useEvents } from '../../context/EventsContext';
 import "./styles.css";
 
 const Calendar = () => {
@@ -16,6 +17,9 @@ const Calendar = () => {
     "17:00",
     "18:00",
   ];
+
+  const { events } = useEvents();
+  console.log(events)
 
   return (
     <div className="calendar">

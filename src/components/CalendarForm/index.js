@@ -11,10 +11,18 @@ const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
         event.preventDefault();
         const name = event.target.eventName.value;
         const day = event.target.eventDay.value;
-        const time = event.target.eventTime.value;
-        addEvent({ name, day, time });
+        const startTime = event.target.eventTime.value;
+        // add 1 hour to end time:
+        // startTime = "9:00"
+        // endTime = "10:00"
 
-        console.log(name, day, time);
+        // split the startTime string by the colon:
+        const [hours, minutes] = startTime.split(":").map(Number)
+        console.log(hours, minutes)
+        // add 1 to the hours
+        const endTime = `${hours + 1}:${minutes}0`;
+        console.log(endTime)
+        addEvent({ name, day, startTime, endTime });
     }
     return (
         <div className="calendar-form">
