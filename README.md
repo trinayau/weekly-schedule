@@ -24,3 +24,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screenshots
 
+![Exampleschedule](https://user-images.githubusercontent.com/92634994/215843536-37685432-1461-44c7-a7f1-341382c2a23a.png)
+![Screenshot 2023-01-31 at 17 56 10](https://user-images.githubusercontent.com/92634994/215843635-c0b5f61e-612f-477b-935e-7c5680158704.png)
+![screencapture-weekly-calendar-schedule-netlify-app-2023-01-31-17_57_58](https://user-images.githubusercontent.com/92634994/215844105-ceb9a516-0ec3-4d11-a183-880ea5f595a1.png)
