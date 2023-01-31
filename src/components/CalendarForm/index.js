@@ -26,7 +26,7 @@ const CalendarForm = ({daysOfWeek, hoursOfDay, setShowConfetti}) => {
         setShowConfetti(true);
         setTimeout(() => {
             setShowConfetti(false);
-          }, 3000); 
+          }, 2500); 
     }
     return (
         <div className="calendar-form">
