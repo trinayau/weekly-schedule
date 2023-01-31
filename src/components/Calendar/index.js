@@ -1,9 +1,15 @@
 import { Table, Container, Row, Col } from "react-bootstrap";
 import CalendarForm from "../CalendarForm";
 import { useEvents } from '../../context/EventsContext';
+import { useState } from 'react';
+import Event from "../Event";
 import "./styles.css";
+import Confetti from 'react-confetti';
+
 
 const Calendar = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
+
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   const hoursOfDay = [
     "9:00",
@@ -23,6 +29,7 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+         {showConfetti ? <Confetti /> : null}
       <Container>
         <Row>
           <Col>
@@ -37,18 +44,28 @@ const Calendar = () => {
               </thead>
               <tbody>
                 {hoursOfDay.map((hour) => (
-                  <tr key={hour}>
+                  <tr  key={hour}>
                     <td>{hour}</td>
-                    {daysOfWeek.map((day) => (
-                      <td key={`${day}-${hour}`}></td>
-                    ))}
+                    {daysOfWeek.map((day) => {
+                      const eventsForHour = events.filter(event => event.day === day && event.startTime === hour);
+                      const numEvents = eventsForHour.length;
+                      return (
+                        <td  key={`${day}-${hour}`}>
+                          <div className="calendar-event">
+                          {eventsForHour.map(event => (
+                            <Event key={event.id} event={event} style={{ width: `${100 / numEvents}%` }}  />
+                          ))}
+                          </div>
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
             </Table>
           </Col>
         </Row>
-        <CalendarForm daysOfWeek={daysOfWeek} hoursOfDay={hoursOfDay}/>
+        <CalendarForm daysOfWeek={daysOfWeek} hoursOfDay={hoursOfDay} setShowConfetti={setShowConfetti}/>
       </Container>
        
     </div>

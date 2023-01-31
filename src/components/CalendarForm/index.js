@@ -3,7 +3,7 @@ import { useEvents } from '../../context/EventsContext';
 import { useState } from 'react';
 import './styles.css';
 
-const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
+const CalendarForm = ({daysOfWeek, hoursOfDay, setShowConfetti}) => {
 
     const { addEvent } = useEvents();
 
@@ -23,6 +23,10 @@ const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
         const endTime = `${hours + 1}:${minutes}0`;
         console.log(endTime)
         addEvent({ name, day, startTime, endTime });
+        setShowConfetti(true);
+        setTimeout(() => {
+            setShowConfetti(false);
+          }, 3000); 
     }
     return (
         <div className="calendar-form">

@@ -9,3 +9,17 @@
 .table th:last-child {
   border-right: none;
 }
+
+.calendar-event {
+  display: flex;
+  width: 100%;
+}
+
+.calendar-event .event {
+
+  
+}
+
+.calendar-event .event:not(:last-child) {
+  /* border-right: 1px solid lightgray; */
+}
