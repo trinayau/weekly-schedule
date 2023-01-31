@@ -1,14 +1,28 @@
 import {Button, Form} from 'react-bootstrap';
+import { useEvents } from '../../context/EventsContext';
+import { useState } from 'react';
 import './styles.css';
 
 const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
+
+    const { addEvent } = useEvents();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const name = event.target.eventName.value;
+        const day = event.target.eventDay.value;
+        const time = event.target.eventTime.value;
+        addEvent({ name, day, time });
+
+        console.log(name, day, time);
+    }
     return (
         <div className="calendar-form">
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <h5>Add event</h5>
             <Form.Group controlId="eventName">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter event name" />
+            <Form.Control type="text" placeholder="Enter event name" required/>
             </Form.Group>
     
             <Form.Group controlId="eventDay">
