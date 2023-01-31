@@ -1,14 +1,11 @@
 import {Button, Form} from 'react-bootstrap';
+import './styles.css';
 
 const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
-    console.log(daysOfWeek)
-    console.log(hoursOfDay)
-
     return (
         <div className="calendar-form">
         <Form>
-            
-            <h2>Add event</h2>
+            <h5>Add event</h5>
             <Form.Group controlId="eventName">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" placeholder="Enter event name" />
@@ -33,8 +30,8 @@ const CalendarForm = ({daysOfWeek, hoursOfDay}) => {
             </Form.Group>
 
 
-            <Button variant="primary" type="submit">
-            Submit
+            <Button variant="blue" type="submit">
+            Add
             </Button>
         </Form>
         </div>

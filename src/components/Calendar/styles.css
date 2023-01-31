@@ -1,0 +1,11 @@
+.table td,
+.table th {
+  border-right: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.table td:last-child,
+.table th:last-child {
+  border-right: none;
+}

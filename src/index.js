@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { EventsProvider } from './context/EventsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <EventsProvider>
     <App />
-  </React.StrictMode>
+  </EventsProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

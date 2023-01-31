@@ -22,8 +22,8 @@ const Calendar = () => {
       <Container>
         <Row>
           <Col>
-            <Table >
-              <thead >
+            <Table borderless>
+              <thead>
                 <tr>
                   <th></th>
                   {daysOfWeek.map((day) => (
