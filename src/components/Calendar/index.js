@@ -1,4 +1,6 @@
 import { Table, Container, Row, Col } from "react-bootstrap";
+import CalendarForm from "../CalendarForm";
+import "./styles.css";
 
 const Calendar = () => {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -17,11 +19,11 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
-            <Table striped bordered hover>
-              <thead>
+            <Table >
+              <thead >
                 <tr>
                   <th></th>
                   {daysOfWeek.map((day) => (
@@ -42,7 +44,9 @@ const Calendar = () => {
             </Table>
           </Col>
         </Row>
+        <CalendarForm daysOfWeek={daysOfWeek} hoursOfDay={hoursOfDay}/>
       </Container>
+       
     </div>
   );
 };
