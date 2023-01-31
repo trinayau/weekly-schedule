@@ -14,6 +14,8 @@
 
 .event-td{
   padding: 2px!important;
+  max-width: 50px;
+  overflow: hidden;
 }
 
 .table td:last-child,
